@@ -24,7 +24,7 @@ VIRTUALENV_THEME_PROMPT_SUFFIX=") "
 if [ ! -z $THEME_PROMPT_HOST_COLOR ]; then
     THEME_PROMPT_HOST_COLOR=$(eval echo $`echo ${THEME_PROMPT_HOST_COLOR}`);
 else
-    THEME_PROMPT_HOST_COLOR="$blue"
+    THEME_PROMPT_HOST_COLOR="$white"
 fi
 
 doubletime_scm_prompt() {

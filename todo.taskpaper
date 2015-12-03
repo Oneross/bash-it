@@ -13,7 +13,7 @@ bugs:
 
 plans / ehnacements:
 	- set up branches with different gitignores for settings
-
+	- include conda virtualenv coalesce for prompt in doubletime, or fix exclmation point
 	- import kc input bash_it if ~REMOTE @na
 	- integrate kc into alfred snippets (or otherwise)
 
