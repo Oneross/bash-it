@@ -10,6 +10,7 @@ bugs:
 		Last login: Sun May 31 23:52:16 on ttys000
 		cd Please install argcomplete to use conda completion
 	- change ssh:inno in custom.aliases.server.bash
+	- when not in git repo, all text is white
 
 plans / ehnacements:
 	- set up branches with different gitignores for settings
