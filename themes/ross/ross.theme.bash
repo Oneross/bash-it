@@ -27,6 +27,24 @@ function get_virtual_env() {
   echo ${VIRTUAL_ENV:-${CONDA_DEFAULT_ENV:-'default'}}
 }
 
+git_prompt_status() {
+  local git_status_output
+  git_status_output=$(git status 2> /dev/null )
+  if [ -n "$(echo $git_status_output | grep 'Changes not staged')" ]; then
+    git_status="${bold_red}$(scm_prompt_info) ✗"
+  elif [ -n "$(echo $git_status_output | grep 'Changes to be committed')" ]; then
+     git_status="${bold_yellow}$(scm_prompt_info) ^"
+  elif [ -n "$(echo $git_status_output | grep 'Untracked files')" ]; then
+     git_status="${bold_cyan}$(scm_prompt_info) +"
+  elif [ -n "$(echo $git_status_output | grep 'nothing to commit')" ]; then
+     git_status="${bold_green}$(scm_prompt_info) ${green}✓"
+  else
+    git_status="$(scm_prompt_info)"
+  fi
+  echo "[$git_status${normal}]"
+
+}
+
 prompt_setter() {
   local exit_status=$?
   if [[ $exit_status == 0 ]]; then PROMPT_END=$PROMPT_END_CLEAN
